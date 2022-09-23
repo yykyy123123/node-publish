@@ -11,6 +11,13 @@
 <body>
     <div style="width: 100px;height:100px;background-color:aquamarine"></div>
     <script>
+        let p1 = new Promise((r,j)=>{
+            setTimeout(() => {
+                r()
+            }, 1000);
+            console.log('....');
+        })
+
         setTimeout(() => {
             fetch("/test", {
                 headers: {
@@ -20,6 +27,8 @@
                 res.text().then(rr => {
                     console.log(rr);
                 })
+            }).catch(e=>{
+                console.log(e);
             })
         }, 1000);
     </script>
